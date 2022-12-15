@@ -2,7 +2,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 # DaemonSet, Deployment or StatefulSet
-kind: "DaemonSet"
+kind: "Deployment"
 
 # # Only applicable for Deployment or StatefulSet
 # replicaCount: 1
