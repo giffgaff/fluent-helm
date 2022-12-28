@@ -161,12 +161,26 @@ updateStrategy: {}
 
 ## Additional environment variables to set for fluentd pods
 env:
-- name: "FLUENTD_CONF"
-  value: "../../../etc/fluent/fluent.conf"
-  # - name: FLUENT_ELASTICSEARCH_HOST
-  #   value: "elasticsearch-master"
-  # - name: FLUENT_ELASTICSEARCH_PORT
-  #   value: "9200"
+  - name: "FLUENTD_CONF"
+    value: "../../../etc/fluent/fluent.conf"
+  - name: "FLUENT_ELASTICSEARCH_HOST"
+    value: "{{ .Values.elasticsearch.host | quote }}"
+  - name: "FLUENT_ELASTICSEARCH_PORT"
+    value: "{{ .Values.elasticsearch.port | quote }}"
+  - name: "FLUENT_ELASTICSEARCH_USER"
+    value: "{{ .Values.elasticsearch.user | quote }}"
+  - name: "FLUENT_ELASTICSEARCH_PASSWORD"
+    value: "{{ .Values.elasticsearch.password | quote }}"
+  - name: "FLUENT_ELASTICSEARCH_LOGSTASH_PREFIX"
+    value: "{{ .Values.elasticsearch.logstash_prefix | quote }}"
+  - name: "FLUENT_ELASTICSEARCH_SCHEME"
+    value: "{{ .Values.elasticsearch.scheme | quote }}"
+  - name: "FLUENT_ELASTICSEARCH_SSL_VERSION"
+    value: "{{ .Values.elasticsearch.ssl_version | quote }}"
+  - name: "FLUENT_ELASTICSEARCH_BUFFER_CHUNK_LIMIT_SIZE"
+    value: "{{ .Values.elasticsearch.buffer_chunk_limit | quote }}"
+  - name: "FLUENT_ELASTICSEARCH_BUFFER_QUEUE_LIMIT_LENGTH"
+    value: "{{ .Values.elasticsearch.buffer_queue_limit | quote }}"
 
 envFrom: []
 
