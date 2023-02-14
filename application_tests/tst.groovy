@@ -5,7 +5,7 @@ def main(graph) {
 
     sh script: '''
 
-es_endpoint="vpc-gg-elasticsearch-test-m4bjq2bgliivv5ponx3ulx4ibm.eu-west-1.es.amazonaws.com"
+es_endpoint="vpc-opensearch-tst-x6v3nkuurdbozwgsxwn27b4die.eu-west-1.es.amazonaws.com"
 
 ## Install 60 days retention policy with index pattern logstash-*
 sh policies/60d_retention.sh --es_endpoint $es_endpoint --index_patterns '"logstash-*"'
