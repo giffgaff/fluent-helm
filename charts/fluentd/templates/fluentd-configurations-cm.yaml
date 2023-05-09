@@ -10,6 +10,7 @@ data:
     {{- $value | nindent 4 }}
 {{- end }}
 
+{{- if not .Values.mainConfigMapNameOverride }}
 ---
 
 apiVersion: v1
@@ -32,3 +33,4 @@ data:
     {{- range $key := .Values.configMapConfigs }}
     {{- print "@include " $key ".d/*"  | nindent 4 }}
     {{- end }}
+{{- end }}
